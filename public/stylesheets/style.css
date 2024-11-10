@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Spicy+Rice&display=swap');
+
+html, body {
+  /* height: 100%; */
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.splash {
+  position: relative;
+  height: 100vh; 
+  background-image: url('/images/picture.jpg');
+  background-size: cover;
+  background-position: center center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+
+.splash .content {
+  text-align: center;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 10px;
+  max-width: 800px; 
+  margin: 0 20px;
+}
+
+
+.splash h1 {
+  font-family: "Spicy Rice", serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 4rem;
+  margin: 0 0 20px;
+}
+
+
+.splash p {
+  font-size: 1.2em;
+  line-height: 1.6;
+  margin: 0;
+  color: #eee;
+}
+
+figure.splash{
+  margin: 0;
+}
+
+.addTopicContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.addTopicForm{
+  background-color: red;
+  height: 200px;
+  width: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.addTopicForm label{
+  width: 150px;
+}
+
+.addTopicContainer input{
+  margin: 5px;
+}
