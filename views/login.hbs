@@ -1,0 +1,40 @@
+{{!-- Show error message if credentials are incorrect --}}
+
+{{#if messages}}
+    <div class="alert alert-danger">
+        Invalid credentials
+    </div>
+{{else}}
+    <div class="alert alert-info">
+        Please enter your credentials
+    </div>
+{{/if}}
+
+
+<div class="login-reg-panel">
+
+  <form method="post">
+    <div class="white-panel">
+      <div class="login-show">
+        <h2>LOGIN</h2>
+
+        <input name ="username" id="username" type="text" placeholder="User name" required>
+        <input name ="password" id="password" type="password" placeholder="Password" required>
+        <button class="btn btn-secondary">Login </button>
+        <hr>
+        <p>Login with:</p>
+        
+        <div class="icons">
+          <a href="/github"><i class="fa fa-github fa-3x" aria-hidden="true"></i></a>
+           <a href="/auth/google"><i class="fa fa-google fa-3x" aria-hidden="true"></i></a>  
+        </div>
+      </div>
+
+    </div>
+
+    <div class="register-info-box">
+      <h2>Don't have an account?</h2>
+      <button type="button" class="btn btn-light mt-4" ><a href="/register">Register</a></button>
+    </div>
+  </form>
+</div>
