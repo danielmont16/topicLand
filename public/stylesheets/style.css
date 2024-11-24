@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Spicy+Rice&display=swap');
 
-html, body {
-  /* height: 100%; */
-  margin: 0;
+body {
+  
   font-family: Arial, sans-serif;
+ 
 }
 
 .splash {
@@ -70,6 +70,121 @@ figure.splash{
 
 .addTopicContainer input{
   margin: 5px;
+}
+
+
+.login-reg-panel {
+  position: relative;
+  top: 50%;
+  text-align: center;
+  width: 70%;
+  right: 0;
+  left: 0;
+  margin: auto;
+  height: 400px;
+  background-color: rgba(210, 242, 246, 0.856);
+  margin-bottom: 200px;
+  margin-top: 100px;
+}
+
+.white-panel {
+  background-color: rgba(255, 255, 255, 1);
+  height: 500px;
+  position: absolute;
+  top: -50px;
+  width: 50%;
+  right: calc(50% - 50px);
+  box-shadow: 0 0 15px 9px #00000096;
+  
+}
+
+.login-reg-panel input[type="radio"] {
+  position: relative;
+  display: none;
+}
+
+.login-reg-panel {
+  color: #9a9a9a;
+}
+
+
+.login-info-box {
+  width: 30%;
+  padding: 0 50px;
+  top: 20%;
+  left: 0;
+  position: absolute;
+  text-align: left;
+}
+
+
+
+.login-show {
+  color: #242424;
+  text-align: left;
+  padding: 50px;
+}
+
+
+.login-show input[type="text"],
+.login-show input[type="password"] {
+  width: 100%;
+  display: block;
+  margin: 20px 0;
+  padding: 15px;
+  border: 1px solid #b5b5b5;
+  outline: none;
+}
+
+.register-info-box {
+  width: 40%;
+  padding: 0 50px;
+  top: 20%;
+  right: 0;
+  position: absolute;
+  text-align: left;
+
+}
+
+.icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.fa-github {
+  color: black;
+  padding: 10px;
+}
+
+.fa-google {
+  background: conic-gradient(from -45deg, #ea4335 110deg, #4285f4 90deg 180deg, #34a853 180deg 270deg, #fbbc05 270deg) 73% 55%/150% 150% no-repeat;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+.fa-trash {
+  color: red;
+  margin: 5px;
+}
+
+.fa-pencil {
+  color: rgba(22, 23, 18, 0.785);
+  margin-left: 10px;
+}
+
+.fa-plus-square {
+  margin: 10px;
+  color: blue;
+}
+
+.register-info-box a {
+  text-decoration: none;
+  text-decoration-line: none;
+  color: black;
 }
 
 .container-body {
