@@ -3,11 +3,17 @@ const router = express.Router();
 const Topic = require("../models/topic");
 const Article = require("../models/article");
 const AuthenticationMiddleware = require("../extensions/authentication");
+// const article = require("../models/article");
 
 //GET /Acticles
 
-router.get("/", (req, res, next) => {
-  res.render("articles/index");
+router.get("/", async (req, res, next) => {
+  let articles = await Article.find().sort([["date", "descending"]]);
+  res.render("articles/index", {
+    title: "Article List",
+    dataset: articles,
+    user: req.user,
+  });
 });
 
 router.get("/add", AuthenticationMiddleware, async (req, res, next) => {
@@ -21,11 +27,11 @@ router.get("/add", AuthenticationMiddleware, async (req, res, next) => {
 });
 
 // POST /Article/Add
-router.post("/add", async (req, res, next) => {
+router.post("/add", AuthenticationMiddleware, async (req, res, next) => {
   let newArticle = new Article({
-    title: req.body.name,
-    topic: req.body.description,
-    autor: req.body.autor,
+    title: req.body.title,
+    topic: req.body.topic,
+    author: req.body.author,
     creationDate: req.body.creationDate,
     content: req.body.content,
   });
