@@ -95,7 +95,7 @@ router.get('/auth/google/',
   ));
 
 // GET /Google/callback
-router.get('/google/callback',
+router.get('/auth/google/callback',
   passport.authenticate('google', { failureRedirect: '/login' }),
   (req, res, next) => {
     res.redirect("/topics");

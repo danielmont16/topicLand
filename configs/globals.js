@@ -3,7 +3,7 @@ require("dotenv").config();
 
 const configurations = {
   ConnectionStrings: {
-    MongoDB: "mongodb+srv://carlos:3KDCgnBktDPMRbZ4@cluster0.7wsvg.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0",
+    MongoDB: process.env.DB_CONNECT,
   },
   Authentication: {
     GitHub: {
