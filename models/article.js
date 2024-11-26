@@ -1,4 +1,6 @@
 const mongoose = require("mongoose");
+// const user = require("")
+
 const schemaObj = {
     title: {type: String, required: true},
     topic: {type: String, required: true},

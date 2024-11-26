@@ -54,72 +54,72 @@ app.use(passport.session());
 passport.use(User.createStrategy());
 
 // configure github strategy
-// passport.use(
-//   new githubStrategy(
-//     // options object
-//     {
-//       clientID: configs.Authentication.GitHub.ClientId,
-//       clientSecret: configs.Authentication.GitHub.ClientSecret,
-//       callbackURL: configs.Authentication.GitHub.CallbackUrl,
-//     },
-//     // callback function
-//     // profile is github profile
-//     async (accessToken, refreshToken, profile, done) => {
-//       // search user by ID
-//       const user = await User.findOne({ oauthId: profile.id });
-//       // user exists (returning user)
-//       if (user) {
-//         // no need to do anything else
-//         return done(null, user);
-//       } else {
-//         // new user so register them in the db
-//         const newUser = new User({
-//           username: profile.username,
-//           oauthId: profile.id,
-//           oauthProvider: "Github",
-//           created: Date.now(),
-//         });
-//         // add to DB
-//         const savedUser = await newUser.save();
-//         // return
-//         return done(null, savedUser);
-//       }
-//     }
-//   )
-// );
+passport.use(
+  new githubStrategy(
+    // options object
+    {
+      clientID: configs.Authentication.GitHub.ClientId,
+      clientSecret: configs.Authentication.GitHub.ClientSecret,
+      callbackURL: configs.Authentication.GitHub.CallbackUrl,
+    },
+    // callback function
+    // profile is github profile
+    async (accessToken, refreshToken, profile, done) => {
+      // search user by ID
+      const user = await User.findOne({ oauthId: profile.id });
+      // user exists (returning user)
+      if (user) {
+        // no need to do anything else
+        return done(null, user);
+      } else {
+        // new user so register them in the db
+        const newUser = new User({
+          username: profile.username,
+          oauthId: profile.id,
+          oauthProvider: "Github",
+          created: Date.now(),
+        });
+        // add to DB
+        const savedUser = await newUser.save();
+        // return
+        return done(null, savedUser);
+      }
+    }
+  )
+);
 
 //Configuring Google Strategy
-// passport.use(
-//   new GoogleStrategy(
-//     {
-//       clientID: configs.Authentication.Google.ClientId,
-//       clientSecret: configs.Authentication.Google.ClientSecret,
-//       callbackURL: configs.Authentication.Google.CallbackUrl,
-//       passReqToCallback: true,
-//     },
-//     async (req, accessToken, refreshToken, profile, done) => {
-//       // search user by ID
-//       const user = await User.findOne({ oauthId: profile.id });
+passport.use(
+  new GoogleStrategy(
+    {
+      clientID: configs.Authentication.Google.ClientId,
+      clientSecret: configs.Authentication.Google.ClientSecret,
+      callbackURL: configs.Authentication.Google.CallbackUrl,
+      passReqToCallback: true,
+    },
+    async (req, accessToken, refreshToken, profile, done) => {
+      // search user by ID
+      const user = await User.findOne({ oauthId: profile.id });
 
-//       // user exists (returning user)
-//       if (user) {
-//         return done(null, user);
-//       } else {
-//         // new user so register them in the db
-//         const newUser = new User({
-//           username: profile.emails[0].value, // Profile email
-//           oauthId: profile.id, // Google ID
-//           oauthProvider: "google",
-//           created: Date.now(),
-//         });
+      // user exists (returning user)
+      if (user) {
+        return done(null, user);
+      } else {
+        // new user so register them in the db
+        const newUser = new User({
+          username: profile.emails[0].value, // Profile email
+          oauthId: profile.id, // Google ID
+          oauthProvider: "google",
+          created: Date.now(),
+        });
 
-//         // add to DB
-//         const savedUser = await newUser.save();
-//         return done(null, savedUser);
-//       }
-//     }
-//   )
-// );
+        // add to DB
+        const savedUser = await newUser.save();
+        return done(null, savedUser);
+      }
+    }
+  )
+);
 
 // Set passport to write/read user data to/from session object
 passport.serializeUser(User.serializeUser());
