@@ -75,7 +75,7 @@ figure.splash{
 
 .login-reg-panel {
   position: relative;
-  top: 50%;
+  /* top: 50%; */
   text-align: center;
   width: 70%;
   right: 0;
@@ -185,4 +185,22 @@ figure.splash{
   text-decoration: none;
   text-decoration-line: none;
   color: black;
+}
+
+.container-body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.container-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.content-field {
+  height: 500px;
 }
