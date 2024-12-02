@@ -1,22 +1,27 @@
-<h1>{{title}}</h1>
+<div class="container mx-auto p-4 bg-white">
+  <h1 class="text-lg font-bold mb-4">{{title}}</h1>
+  {{!-- Add links to CRUD operations --}}
+  <button class="btn btn-secondary"><a href="/topics/add">Add a new Topic</a></button>
 
-{{!-- Add links to CRUD operations --}}
-<a href="/topics/add">Add a new Topic</a>
+  {{!-- To Show data --}}
+  <div class="relative overflow-x-auto  sm:rounded-lg">
 
-{{!-- To Show data --}}
-<table class="table table-striped table-hover">
-  <thead>
-    <th>Name</th>
-    <th>Description</th>
-    <th>Creation Date</th>
-  </thead>
-  <tbody>
-  {{#each dataset}}
-    <tr>
-      <td>{{this.name}}</td>
-      <td>{{this.description}}</td>
-      <td>{{this.creationDate}}</td>
-    </tr>
-  {{/each}}
-  </tbody>
-</table>
+    <table class="w-50 m-auto text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 ">
+      <thead class="text-xs text-gray-700 uppercase bg-gray-300 dark:bg-gray-700 dark:text-gray-400 ">
+        <th scope="col" class="px-6 py-3">Name</th>
+        <th scope="col" class="px-6 py-3">Description</th>
+        <th scope="col" class="px-6 py-3">Creation Date</th>
+      </thead>
+      <tbody>
+        {{#each dataset}}
+        <tr class="hover:bg-gray-200 ">
+          <td class="px-6 py-4">{{this.name}}</td>
+          <td class="px-6 py-4">{{this.description}}</td>
+          <td class="px-6 py-4">{{toShortDate this.creationDate}}</td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+
+  </div>
+</div>
