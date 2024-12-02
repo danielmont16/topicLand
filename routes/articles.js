@@ -43,7 +43,7 @@ router.post("/add", AuthenticationMiddleware, async (req, res, next) => {
 // access parameters via req.params object
 router.get("/delete/:_id", AuthenticationMiddleware, async (req, res, next) => {
   let articleId = req.params._id;
-  await Article.findByIdAndRemove({ _id: articleId });
+  await Article.findByIdAndDelete({ _id: articleId });
   res.redirect("/articles");
 });
 
@@ -51,11 +51,11 @@ router.get("/delete/:_id", AuthenticationMiddleware, async (req, res, next) => {
 router.get("/edit/:_id", AuthenticationMiddleware, async (req, res, next) => {
   let articleId = req.params._id;
   let articleData = await Article.findById(articleId);
-  let articleList = await Article.find().sort([["name", "ascending"]]);
+  let topicList = await Topic.find().sort([["name", "ascending"]]);
   res.render("articles/edit", {
     title: "Edit Article",
     article: articleData,
-    topic: articleList,
+    topics: topicList,
     user: req.user,
   });
 });
@@ -70,7 +70,6 @@ router.post("/edit/:_id", AuthenticationMiddleware, async (req, res, next) => {
       title: req.body.title,
       topic: req.body.topic,
       author: req.body.author,
-      date: req.body.date,
       content: req.body.content,
     }
   );

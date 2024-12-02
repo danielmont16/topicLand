@@ -204,3 +204,8 @@ figure.splash{
 .content-field {
   height: 500px;
 }
+
+.crud-buttons {
+  display: flex;
+  gap: 5px;
+}

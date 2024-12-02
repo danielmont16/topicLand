@@ -5,9 +5,8 @@ const passport = require("passport");
 
 /* GET home page. */
 router.get("/", function (req, res, next) {
-  res.render("index", { title: "Express", user: req.user });
+  res.render("index", { title: "TopicLand", user: req.user });
 });
-
 
 // GET /login
 router.get("/login", (req, res, next) => {
@@ -76,32 +75,31 @@ router.get(
 );
 
 // GET /github/callback
-router.get("/github/callback", // path
+router.get(
+  "/github/callback", // path
   passport.authenticate("github", { failureRedirect: "/login" }), // github middleware
   (req, res, next) => {
     res.redirect("/topics");
   } // custom middleware (success)
 );
 
-
 // GET /Google
 // triggers when user clicks on the "Google" icon on the login page
 // user is sent to google.com in order to provide credentials
-router.get('/auth/google/',
-  passport.authenticate('google', {
-    scope:
-      ['email', 'profile']
-  }
-  ));
-
-// GET /Google/callback
-router.get('/auth/google/callback',
-  passport.authenticate('google', { failureRedirect: '/login' }),
-  (req, res, next) => {
-    res.redirect("/topics");
-  }// custom middleware (success)
+router.get(
+  "/auth/google/",
+  passport.authenticate("google", {
+    scope: ["email", "profile"],
+  })
 );
 
-
+// GET /Google/callback
+router.get(
+  "/auth/google/callback",
+  passport.authenticate("google", { failureRedirect: "/login" }),
+  (req, res, next) => {
+    res.redirect("/topics");
+  } // custom middleware (success)
+);
 
 module.exports = router;
