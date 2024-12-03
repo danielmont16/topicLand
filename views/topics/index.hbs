@@ -1,12 +1,12 @@
-<div class="container mx-auto p-4 bg-white">
-  <h1 class="text-lg font-bold mb-4">{{title}}</h1>
+<div class="container-topics container mx-auto p-4 mt-5">
+  <h1 class="text-lg font-bold mb-4 text-white">{{title}}</h1>
   {{!-- Add links to CRUD operations --}}
   <button class="btn btn-secondary"><a href="/topics/add">Add a new Topic</a></button>
 
   {{!-- To Show data --}}
   <div class="relative overflow-x-auto  sm:rounded-lg">
 
-    <table class="w-50 m-auto text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 ">
+    <table class="w-50 m-auto text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 my-5">
       <thead class="text-xs text-gray-700 uppercase bg-gray-300 dark:bg-gray-700 dark:text-gray-400 ">
         <th scope="col" class="px-6 py-3">Name</th>
         <th scope="col" class="px-6 py-3">Description</th>
@@ -14,7 +14,7 @@
       </thead>
       <tbody>
         {{#each dataset}}
-        <tr class="hover:bg-gray-200 ">
+        <tr class="hover:bg-gray-200 hover:text-gray-800 ">
           <td class="px-6 py-4">{{this.name}}</td>
           <td class="px-6 py-4">{{this.description}}</td>
           <td class="px-6 py-4">{{toShortDate this.creationDate}}</td>

@@ -3,13 +3,30 @@
 body {
   
   font-family: Arial, sans-serif;
- 
+  background-color: transparent !important;
+}
+
+.VideoBackground {
+  text-align: center;
+  align-items: center top;
+  right: 0;
+  height: 0px;
+}
+
+.back-video {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  z-index: -1;
+  width:2500px;
 }
 
 .splash {
   position: relative;
   height: 100vh; 
-  background-image: url('/images/picture.jpg');
+  /* background-image: url('/images/picture.jpg'); */
+  background-color: transparent;
   background-size: cover;
   background-position: center center;
   display: flex;
@@ -192,6 +209,7 @@ figure.splash{
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  background-color: transparent;
 }
 
 .container-row {
@@ -208,4 +226,49 @@ figure.splash{
 .crud-buttons {
   display: flex;
   gap: 5px;
+}
+
+.section-container {
+  background-color: #0000005b;
+  /* height: 100%; */
+}
+
+.container-login {
+  background-color: transparent !important;
+  max-width: 600px !important;
+  border-radius: 12px;
+  backdrop-filter: blur(50px);
+  border: 1px solid white;
+}
+
+.container-login h2,p{
+  color: whitesmoke;
+}
+
+.container-login hr {
+  border-color: white;
+}
+
+.article-card {
+  backdrop-filter: blur(45px);
+}
+
+.container-topics {
+  background-color: transparent !important;
+  border-radius: 12px;
+  backdrop-filter: blur(50px);
+  border: 1px solid white;
+}
+
+.container-topics table {
+  /* border-radius: 16px !important; */
+  border: 1px solid  rgba(255, 255, 255, 0.041);
+}
+
+.create-new-btn {
+  backdrop-filter: blur(50px)
+}
+
+.custom-navbar {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.815),rgba(0, 0, 0, 0.215) );
 }
